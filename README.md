@@ -10,3 +10,5 @@ Paragrapg
 
 Tarot cards:
 https://onyourjourney.co.uk/wp-content/uploads/2023/07/Free-Printable-Tarot-Deck-Onyourjourney.pdf
+
+Datensatz: https://tarotapi.dev/api/v1/cards 
