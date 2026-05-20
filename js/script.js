@@ -12,3 +12,26 @@ async function startGame(stop) {
     console.error("Fetch failed:", error);
   }
 }
+
+
+
+
+// ── Flip-Logik ───────────────────────────────
+const card  = document.getElementById('card');
+const scene = document.getElementById('finalist');
+
+function flip() {
+  card.classList.toggle('flipped');
+  // Klasse 'flipped' → CSS dreht .card um 180°
+}
+
+// Klick / Touch
+finalist.addEventListener('click', flip);
+
+// Tastatur (Enter / Space)
+finalist.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    flip();
+  }
+});

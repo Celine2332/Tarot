@@ -33,10 +33,70 @@ body {
     min-height: 100vh;
     background-image: var(--background);
     font-family: var(--f-text);
+
 }
 
 h1{
     font-family: var(--f-titel);
+    color: var(--text-color);
+}
+
+
+/* ── Karten um drehen ── */
+
+.FortunateFinalist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100dvh;
+    padding: 48px 24px 32px;
+    gap: 28px;
+}
+
+.headline {
+    text-align: center;
+    font-family: var(--f-titel);
+}
+
+
+.finalist {
+    aspect-ratio: 2 / 3;
+    perspective: 1200px;  /* gibt Tiefe */  cursor: pointer;
+}
+
+.card {
+    height: 500px;
+    position: relative;
+    transform-style: preserve-3d; 
+    transition: transform .75s cubic-bezier(.4,0,.2,1);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);  /* Flip! */
+}
+
+.face {
+    position: absolute; inset: 0;
+    backface-visibility: hidden;  /* Rückseite verstecken */
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.face-front img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+
+.face-back {
+    transform: rotateY(180deg);  /* vorgedreht */
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+}
+
+.hint {
+    font-size: .78rem;
+    letter-spacing: .15em;
     color: var(--text-color);
 }
 
