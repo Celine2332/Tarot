@@ -32,8 +32,9 @@ body {
     flex-direction: column;
     min-height: 100vh;
     background-image: var(--background);
-    font-family: var(--f-titel);
+    font-family: var(--f-text);
 }
+
 h1{
     font-family: var(--f-titel);
     color: var(--text-color);
