@@ -11,35 +11,31 @@
 <body>
     <main>
 
-    <div class="FortunateFinalist">
+        <div class="FortunateFinalist">
+            <h1 class="headline">
+                dear player, you<br>
+                are a fortunate<br>finalist!
+            </h1>
 
-    <!-- Überschrift -->
-    <h1 class="headline">
-        dear player, you<br>
-        are a fortunate<br>finalist!
-    </h1>
+            <!-- card flip -->
+            <div class="finalist" id="finalist"
+                role="button" aria-label="Karte umdrehen" tabindex="0">
+                <div class="card" id="card">
 
-    <!-- 3D-Scene: Perspektive-Container -->
-    <div class="finalist" id="finalist"
-        role="button" aria-label="Karte umdrehen" tabindex="0">
-        <div class="card" id="card">
+                    <!-- front -->
+                    <div class="face face-front">
+                        <img src="assets/images/ar11.png" alt="The Empress" />
+                    </div>
 
-        <!-- VORDERSEITE -->
-        <div class="face face-front">
-            <img src="assets/images/ar11.png" alt="The Empress" />
+                    <!-- back -->
+                    <div class="face face-back">
+                        <img src="/assets/images/back.png" alt="Back" />
+                    </div>
+                </div>
+            </div>
+            <p class="hint">tap to reveal</p>
         </div>
 
-        <!-- RÜCKSEITE -->
-        <div class="face face-back">
-            <img src="/assets/images/back.png" alt="Back" />
-
-        </div>
-
-        </div>
-    </div>
-
-    <p class="hint">tap to reveal</p>
-</div>
     </main>
 
 

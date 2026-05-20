@@ -41,6 +41,11 @@ h1{
     color: var(--text-color);
 }
 
+/* ── Start game - page ── */
+.start-game {
+    display: flex;
+    flex-direction: column;
+}
 
 /* ── Karten um drehen ── */
 
@@ -60,7 +65,7 @@ h1{
 
 
 .finalist {
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 2 / 3.3;
     perspective: 1200px;  /* gibt Tiefe */  cursor: pointer;
 }
 
