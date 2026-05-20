@@ -63,15 +63,17 @@ button {
     font-family: var(--f-text);
     cursor: pointer;
 }
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    top: 60px;
-    right: 20px;
+.menu-items {
     background-color: var(--menu-color);
-    padding: 10px;
     border-radius: 30px;
+    border: 2px solid var(--text-color);
+    display: flex;
+    width: 4.1875rem;
+    padding: 1.3125rem 0.8125rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.375rem;
+    border-radius: 4.125rem;
 }
 
 
