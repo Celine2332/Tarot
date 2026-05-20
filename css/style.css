@@ -33,6 +33,7 @@ body {
     min-height: 100vh;
     background-image: var(--background);
     font-family: var(--f-text);
+    margin: var(--ga-large);
 
 }
 
@@ -41,11 +42,18 @@ h1{
     color: var(--text-color);
 }
 
-/* ── Start game - page ── */
-.start-game {
-    display: flex;
-    flex-direction: column;
+.hamburger span {
+    width: 30px;
+    height: 2px;
+    color: var();
 }
+
+.menu{
+    background-color: transparent;
+}
+
+
+
 
 /* ── Karten um drehen ── */
 
@@ -67,17 +75,23 @@ h1{
 .finalist {
     aspect-ratio: 2 / 3.3;
     perspective: 1200px;  /* gibt Tiefe */  cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .card {
     height: 500px;
     position: relative;
-    transform-style: preserve-3d; 
+
+    transform-style: preserve-3d;
+
+    /* STARTET AUF DER RÜCKSEITE */
+    transform: rotateY(180deg);
+
     transition: transform .75s cubic-bezier(.4,0,.2,1);
 }
 
 .card.flipped {
-    transform: rotateY(180deg);  /* Flip! */
+    transform: rotateY(0deg);
 }
 
 .face {
@@ -93,9 +107,17 @@ h1{
 }
 
 .face-back {
+    width: 100%; height: 100%;
+    object-fit: cover;
     transform: rotateY(180deg);  /* vorgedreht */
     display: flex;
     flex-direction: column;
+    object-fit: cover;
+}
+
+.face img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 

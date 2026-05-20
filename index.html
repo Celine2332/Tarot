@@ -8,38 +8,56 @@
 </head>
 
 <body>
-    <div class="start-game">
+    <main>
         <button class="hamburger" id="hamburgerBtn">
             <span></span>
             <span></span>
             <span></span>
         </button>
 
-        <nav class="mobile-menu" id="mobileMenu">
-            <button class="menu-item" data-action="home"><img src="assets/menu-icons/house.svg" alt="home"></button>
-            <button class="menu-item" data-action="play"><img src="assets/menu-icons/play.svg" alt="play"></button>
-            <button class="menu-item" data-action="replay"><img src="assets/menu-icons/replay.svg" alt="replay"></button>
-            <button class="menu-item" data-action="help"><img src="assets/menu-icons/Tutorial.svg" alt="tutorial"></button>
-            <button class="menu-item" data-action="info"><img src="assets/menu-icons/i.svg" alt="impressum"></button>
+        <nav class="menu" id="menu">
+            <a href="index.html">
+                <button class="menu-item" data-action="home"><img src="assets/menu-icons/house.svg" alt="home"></button>
+            </a>
+            <a href="players.html">
+                <button class="menu-item" data-action="play"><img src="assets/menu-icons/play.svg" alt="play"></button>
+            </a>
+
+            <a href="players.html">
+                <button class="menu-item" data-action="replay"><img src="assets/menu-icons/replay.svg" alt="replay"></button>
+            </a>
+
+            <a href="anleitung.html">
+                <button class="menu-item" data-action="tutorial"><img src="assets/menu-icons/Tutorial.svg" alt="tutorial"></button>
+            </a>
+
+            <a href="Impressum.html">
+                <button class="menu-item" data-action="impressum"><img src="assets/menu-icons/i.svg" alt="impressum"></button>
+            </a>
         </nav>
 
-        <div class="startpage">
+        <div class="title">
             <h1>Fortunate</h1>
             <img src="assets/eye/eye.svg" alt="Eye">
             <h1>Finalists</h1>
         </div>
 
-        <script
-        src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js"
-        type="module"
-        ></script>
+        <div class="button">
+            <script
+            src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js"
+            type="module"
+            ></script>
 
-        <dotlottie-wc
-        src="https://lottie.host/798736e0-df07-41a4-b114-7c9d201b2f91/JffNz2ukxK.lottie"
-        stateMachineId="play_now"
-        style="width: 300px;height: 300px"
+            <dotlottie-wc
+            src="https://lottie.host/798736e0-df07-41a4-b114-7c9d201b2f91/JffNz2ukxK.lottie"
+            stateMachineId="play_now"
+            style="width: 300px;height: 300px"
         ></dotlottie-wc>
-    </div>
+
+        </div>
+
+
+    </main>
 
 
     <script src="js/script.js" type="module"></script>
