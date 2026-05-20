@@ -13,6 +13,7 @@
     --secondary: #463631;
     --cardneg: linear-gradient(#BE352F, black);
     --cardpos: linear-gradient(#56969A, black);
+    --menu-color: #0E0A24;
 
     /* schriften*/
     --f-titel: 'Benne';
@@ -42,14 +43,35 @@ h1{
     color: var(--text-color);
 }
 
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
 .hamburger span {
+    background-color: var(--text-color);
     width: 30px;
     height: 2px;
-    color: var();
+    color: var(--text-color);
 }
 
-.menu{
-    background-color: transparent;
+button {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-family: var(--f-text);
+    cursor: pointer;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 60px;
+    right: 20px;
+    background-color: var(--menu-color);
+    padding: 10px;
+    border-radius: 30px;
 }
 
 
