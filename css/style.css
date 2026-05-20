@@ -1,6 +1,41 @@
+
+@import "resets.css";
+@import "fonts.css";
+
+
+:root{
+    font-size: 18px;
+    
+    /*farbe*/
+    --background: linear-gradient(#1D154B, black);
+    --text-color: #FFEEDC;
+    --primary: #628059;
+    --secondary: #463631;
+    --cardneg: linear-gradient(#BE352F, black);
+    --cardpos: linear-gradient(#56969A, black);
+
+    /* schriften*/
+    --f-titel: 'Benne';
+    --f-text: '';
+
+    /*grössen*/
+    --ga-large: 2.5rem;
+    --ga-medium: 1rem;
+    --ga-small: 0.5rem;
+
+}
+
+
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: linear-gradient(#1D154B, black);
+    background-image: var(--background);
+    font-family: var(--f-titel);
 }
+h1{
+    font-family: var(--f-titel);
+    color: var(--text-color);
+}
+
