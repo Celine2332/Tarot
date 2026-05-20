@@ -34,6 +34,7 @@ tarotImage.alt = shortName;
 // Flip-Logik 
 const card  = document.getElementById('card');
 const scene = document.getElementById('finalist');
+//für rückseite neue constante definieren die anschliessend im css angesprochen werden kann
 
 function flip() {
   card.classList.toggle('flipped');
