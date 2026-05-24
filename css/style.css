@@ -184,3 +184,29 @@ button {
     text-transform: lowercase;
     line-height: var(--ga-text);
 }    
+
+
+
+/*mobile*/
+@media screen and (max-width: 700px) {
+
+    body {
+        margin: var(--ga-medium);
+    }
+
+    .impressum1 {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        align-items: center;
+        gap: var(--ga-large);
+    }
+
+    .contactimpressum {       
+        width: 100%;
+    }
+
+    .textimpressum {
+        width: 100%;
+    }      
+}
