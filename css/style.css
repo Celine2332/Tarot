@@ -9,25 +9,25 @@
     /*farbe*/
     --background: linear-gradient(#1D154B, black);
     --text-color: #FFEEDC;
-    --primary: #628059;
-    --secondary: #463631;
+    --accent: #756bab;
     --cardneg: linear-gradient(#BE352F, black);
     --cardpos: linear-gradient(#56969A, black);
     --menu-color: #0E0A24;
 
     /* schriften*/
     --f-titel: 'Benne';
-    --f-text: '';
+    --f-text: 'Area';
 
     /*grössen*/
     --ga-large: 2.5rem;
+    --ga-text: 1.3rem;
     --ga-medium: 1rem;
     --ga-small: 0.5rem;
 
 }
 
 
-
+    /*allgemein*/
 body {
     display: flex;
     flex-direction: column;
@@ -35,12 +35,11 @@ body {
     background-image: var(--background);
     font-family: var(--f-text);
     margin: var(--ga-large);
-
+    color: var(--text-color);
 }
 
 h1{
     font-family: var(--f-titel);
-    color: var(--text-color);
 }
 
 .hamburger {
@@ -148,6 +147,40 @@ button {
 .hint {
     font-size: .78rem;
     letter-spacing: .15em;
-    color: var(--text-color);
 }
 
+/*Index*/
+.unter-titel h1 {
+    text-align: center;
+    font-size: 4rem;       
+}
+
+.impressum1 {
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    margin: auto;
+    gap: var(--ga-large);
+    font-family: var(--f-text);
+    text-transform: lowercase;
+    line-height: var(--ga-text);
+}
+
+.contactimpressum {       
+    min-width: 35%;
+}
+
+.contactimpressum a{       
+    color: var(--text-color);
+    text-decoration: none;
+    &:hover{
+        color: var(--accent);
+    }
+}
+
+.textimpressum {
+    min-width: 65%;
+    padding-bottom: var(--ga-large);
+    text-transform: lowercase;
+    line-height: var(--ga-text);
+}    
