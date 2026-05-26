@@ -40,7 +40,7 @@ Ranking Karten
    ar21
    ar00
 
-2. Cups
-3. Wands
-4. Pentacles
-5. Swords
+2. Cups (1,14-2)
+3. Wands (1,14-2)
+4. Pentacles (1,14-2)
+5. Swords(1,14-2)
