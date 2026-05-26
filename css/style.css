@@ -101,26 +101,66 @@ button {
 /* KARTEN */
 
 #card-container {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+    position: relative;
+    
+}
+
+.tarot-layout {
+    position: relative;
+    width: 700px;
+    height: 700px;
+    margin: auto;
 }
 
 
-
-/* einzelne Karte */
+/* einzelne Karte  */
 
 .karten {
     width: 180px;
     aspect-ratio: 2 / 3.3;
-    perspective: 1200px;
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    transition:
+        top 1s ease,
+        left 1s ease,
+        transform 1s ease;
+
     cursor: pointer;
+}
+
+/* Positionen der Karten */
+.pos-0 {
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.pos-1 {
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.pos-2 {
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+}
+
+.pos-3 {
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
 }
 
 
 
-/* innere Karte */
+/* rückseite der Karte */
 
 .card {
     width: 100%;

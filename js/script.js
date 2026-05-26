@@ -24,7 +24,6 @@ async function loadCards(startingNummber) {
 
 
 
-
 // Start
 
 init();
@@ -51,9 +50,12 @@ function createCards(cards) {
         const card = document.createElement('div');
 
         card.classList.add('karten');
+            // Startposition = oben mittig
+          // card.style.top = '0';
+          // card.style.left = '50%';
+          // card.style.transform = 'translateX(-50%)';
 
         card.innerHTML = `
-
             <div class="card">
                 <div class="face face-front">
                     <img src="${imagePath}" alt="${cardData.name}">
@@ -67,6 +69,11 @@ function createCards(cards) {
 
         cardContainer.appendChild(card);
 
+    setTimeout(() => {
+        const index = cards.indexOf(cardData);
+        card.classList.add(`pos-${index}`);
+    }, 1200);
+
         const innerCard = card.querySelector('.card');
 
    
@@ -74,7 +81,7 @@ function createCards(cards) {
 
         setTimeout(() => {
             innerCard.classList.add('flipped');
-        }, 500);
+        }, 2200);
 
 
 // Overlay öffnen
