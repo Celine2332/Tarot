@@ -84,24 +84,23 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 100dvh;
-    padding: 48px 24px 32px;
     gap: 28px;
 }
 
 .headline {
     text-align: center;
     font-family: var(--f-titel);
+    line-height: var(--ga-large);
 }
 
 
 .finalist {
     aspect-ratio: 2 / 3.3;
     perspective: 1200px;  /* gibt Tiefe */  cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 8px rgba(0,0,0,5);
 }
 
-.card {
+.FortunateFinalist .card {
     height: 500px;
     position: relative;
 
@@ -149,7 +148,9 @@ button {
     letter-spacing: .15em;
 }
 
-/*Index*/
+
+
+/*Impressum*/
 .unter-titel h1 {
     text-align: center;
     font-size: 4rem;       
