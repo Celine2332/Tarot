@@ -14,37 +14,59 @@ init();
 async function init() {
     const round = getCurrentRound();
     const cardCount = GAME_MODES[round];
+        if (!cardCount) {
+        console.error('Ungültige Runde');
+        return;
+    }
     const cards = await loadCards(cardCount);
 
+    console.log(cards);
+
+// -------------------------------------------------------- Karte mit dem niedrigsten Wert
+    const lowestCard = findLowestCard(cards);
+
+    cards.forEach(card => {
+        card.isReversed =
+            card.value_int === lowestCard.value_int;
+    });
+// ------------------------------------------------------------------------------------------
     createCards(cards);
 }
 
 // ermittelt die aktuelle Runde aus der URL, Standard ist 1
 function getCurrentRound() {
     const params = new URLSearchParams(window.location.search);
-    const round = Number(params.get('round')) || 1;
-    return round;
+    return Number(params.get('round')) || 1;
 }
+
 
 // API
 
 async function loadCards(amount) {
 
-    const url ='https://tarotapi.dev/api/v1/cards/random?n=${amount}';
+    const url =
+        `https://tarotapi.dev/api/v1/cards/random?n=${amount}`;
 
     try {
         const response = await fetch(url);
         const data = await response.json();
         return data.cards;
-    } 
-
-    catch(error) {
+    }
+    
+    catch (error) {
         console.error(error);
         return [];
     }
 }
 
-
+// Funktion, um die Karte mit dem niedrigsten Wert  finden
+function findLowestCard(cards) {
+    return cards.reduce((lowest, current) => {
+        return current.value_int < lowest.value_int
+            ? current
+            : lowest;
+    });
+}
 
 
 
@@ -58,7 +80,7 @@ function createCards(cards) {
         const imagePath =`assets/images/${shortName}.png`;
         const card = document.createElement('div');
 
-//Kartencontainer mit class
+//Kartencontainer mit class für css
         card.classList.add('karten');
 
 //Karteninhalt mit Vorder- und Rückseite
@@ -100,15 +122,17 @@ function startCardAnimation() {
 
 //------------------------------------------------------button platzhalter
         showNextButton();
-
+//---------------------------------------------------------
     }, 3200);
 }
-//---------------------------------------------------------
 
 // Overlay anzeigen
 function showOverlay(cardData) {
     overlayTitle.textContent = cardData.name;
-    overlayText.textContent = cardData.meaning_up;
+    overlayText.textContent = cardData.isReversed
+            ? cardData.meaning_rev
+            : cardData.meaning_up;
+
     overlay.classList.remove('hidden');
 }
 
@@ -131,6 +155,7 @@ function goToNextRound() {
     const currentRound = getCurrentRound();
     const nextRound = currentRound + 1;
 
+// hier sollte anschliessend zum fortunate finalist gewechselt werden
     if (!GAME_MODES[nextRound]) {
         alert('Spiel beendet');
         return;
@@ -139,6 +164,8 @@ function goToNextRound() {
     window.location.href =
         `game.html?round=${nextRound}`;
 }
+
+window.goToNextRound = goToNextRound;
 //---------------------------------------------------------------------
 
 
