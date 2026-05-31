@@ -11,70 +11,27 @@
 <body>
     <main>
 
-        <section class="FortunateFinalist">
-            <h1 class="headline">
-                dear player, you<br>
-                are a fortunate<br>finalist!
-            </h1>
-
-            <!-- card flip -->
-            <div class="finalist" id="finalist"
-                role="button" aria-label="Karte umdrehen" tabindex="0">
-                <div class="card" id="card">
-
-                    <!-- front -->
-                    <div class="face face-front">
-                        <img id="tarot-image" src="" alt="Tarot Card" />
-                    </div>
-                    
-                    <!-- back -->
-                    <div class="face face-back">
-                        <img src="/assets/images/back.png" alt="Back" />
-                    </div>
-
-                </div>
-            </div>
-            <p class="hint">tap to reveal</p>
-        </section>
-
-
-
-
-
-        <section class="FortunateFinalist">
-            <h1 class="headline">
-                dear player, you<br>
-                are a fortunate<br>finalist!
-            </h1>
-
-            <!-- card flip -->
-            <div class="finalist" id="finalist"
-                role="button" aria-label="Karte umdrehen" tabindex="0">
-                <div class="card" id="card">
-
-                    <!-- front -->
-                    <div class="face face-front">
-                        <img id="tarot-image" src="" alt="Tarot Card" />
-                    </div>
-                    
-                    <!-- back -->
-                    <div class="face face-back">
-                        <img src="/assets/images/back.png" alt="Back" />
-                    </div>
-
-                </div>
-            </div>
-            <p class="hint">tap to reveal</p>
+        <section class="cardGame">
+            <div id="card-container" class="tarot-layout"></div>
         </section>
 
     </main>
 
 
+    <!-- Overlay -->
 
-    <footer>
-    </footer>
+    <div id="overlay" class="overlay hidden">
+
+        <div class="overlay-content">
+            <h2 id="overlay-title"></h2>
+            <p id="overlay-text"></p>
+        </div>
+
+    </div>
+
 
     <script src="js/script.js" type="module"></script>
+
 </body>
 </html>
 

@@ -1,3 +1,4 @@
+// DOM Elemente
 const cardContainer = document.getElementById('card-container');
 const overlay = document.getElementById('overlay');
 const overlayTitle = document.getElementById('overlay-title');
@@ -24,37 +25,27 @@ async function loadCards(startingNummber) {
 
 
 
-// Start
+
+// Game Start
 
 init();
 
 async function init() {
-
     const cards = await loadCards(4);
-
     createCards(cards);
     console.info(cards);
-
 }
 
 
-
-
 // Karten erzeugen
-
 function createCards(cards) {
-
     for (const cardData of cards) {
         const shortName = cardData.name_short;
         const imagePath = `assets/images/${shortName}.png`;
         const card = document.createElement('div');
-
+// Kartencontainer
         card.classList.add('karten');
-            // Startposition = oben mittig
-          // card.style.top = '0';
-          // card.style.left = '50%';
-          // card.style.transform = 'translateX(-50%)';
-
+//Kartenlayout und Rückseite
         card.innerHTML = `
             <div class="card">
                 <div class="face face-front">
@@ -66,26 +57,22 @@ function createCards(cards) {
                 </div>
             </div>
         `;
-
         cardContainer.appendChild(card);
 
+// definiert position und start der kartenanimation
     setTimeout(() => {
         const index = cards.indexOf(cardData);
         card.classList.add(`pos-${index}`);
-    }, 1200);
+    }, 1000);
 
         const innerCard = card.querySelector('.card');
-
-   
+     
 // Karten automatisch umdrehen
-
         setTimeout(() => {
             innerCard.classList.add('flipped');
-        }, 2200);
-
+        }, 3200);
 
 // Overlay öffnen
-
         card.addEventListener('click', () => {
             showOverlay(cardData);
         });
@@ -93,10 +80,7 @@ function createCards(cards) {
 }
 
 
-
-
 // Overlay anzeigen
-
 function showOverlay(cardData) {
     overlayTitle.textContent = cardData.name;
     overlayText.textContent = cardData.meaning_up;
@@ -104,16 +88,16 @@ function showOverlay(cardData) {
 
 }
 
-
-
-
 // Overlay schließen
-
 overlay.addEventListener('click', () => {
-
     overlay.classList.add('hidden');
-
 });
+
+
+
+
+
+
 
 // Kartenwerte
 
@@ -204,6 +188,6 @@ const cardValues = {
   'sw02': 3,  // Two of Swords = tiefster Wert!
 };
 
-function getCardValue(card) {
-  return cardValues[card.name_short] || 0;
-}
+//function getCardValue(card) {
+//  return cardValues[card.name_short] || 0;
+//}
