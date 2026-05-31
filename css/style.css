@@ -41,7 +41,7 @@ body {
 }
 
 h1{
-    font-family: var(--f-titel);
+    font-family: var(--f-title);
 }
 
 .headline {
@@ -342,9 +342,5 @@ button {
     .textimpressum {
         width: 100%;
     }     
-    .finalist {
-
-        width: 120px;
-    }
 }
 
