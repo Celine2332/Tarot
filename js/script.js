@@ -3,6 +3,7 @@ const cardContainer = document.getElementById('card-container');
 const overlay = document.getElementById('overlay');
 const overlayTitle = document.getElementById('overlay-title');
 const overlayText = document.getElementById('overlay-text');
+const overlayContent = document.querySelector('.overlay-content');
 const GAME_MODES = {
     1: 4,
     2: 3,
@@ -43,23 +44,20 @@ function getCurrentRound() {
 // API
 
 async function loadCards(amount) {
-
     const url =
         `https://tarotapi.dev/api/v1/cards/random?n=${amount}`;
-
     try {
         const response = await fetch(url);
         const data = await response.json();
         return data.cards;
     }
-    
     catch (error) {
         console.error(error);
         return [];
     }
 }
 
-// Funktion, um die Karte mit dem niedrigsten Wert  finden
+// Funktion, um die Karte mit dem niedrigsten Wert  finden--------------------------------------------
 function findLowestCard(cards) {
     return cards.reduce((lowest, current) => {
         return current.value_int < lowest.value_int
@@ -67,7 +65,7 @@ function findLowestCard(cards) {
             : lowest;
     });
 }
-
+//------------------------------------------------------------------------------------------------
 
 
 // Game Start
@@ -82,7 +80,7 @@ function createCards(cards) {
 
 //Kartencontainer mit class für css
         card.classList.add('karten');
-
+        card.cardData = cardData;
 //Karteninhalt mit Vorder- und Rückseite
         card.innerHTML = `
             <div class="card">
@@ -112,6 +110,7 @@ function createCards(cards) {
 }
 
 // Karten umdrehen nach 3,2 Sekunden
+
 function startCardAnimation() {
     setTimeout(() => {
         document
@@ -120,18 +119,56 @@ function startCardAnimation() {
                 card.classList.add('flipped');
             });
 
+// Nach dem Umdrehen Rahmen anzeigen
+        setTimeout(() => {
+            document
+                .querySelectorAll('.karten')
+                .forEach(cardElement => {
+                    const cardData =
+                        cardElement.cardData;
+                    const innerCard =
+                        cardElement.querySelector('.card');
+
+                    if (cardData.isReversed) {
+                        innerCard.classList.add('negative');
+                    } else {
+                        innerCard.classList.add('positive');
+                    }
+                });
+
 //------------------------------------------------------button platzhalter
         showNextButton();
 //---------------------------------------------------------
+        }, 800);
+
     }, 3200);
+
 }
 
 // Overlay anzeigen
 function showOverlay(cardData) {
     overlayTitle.textContent = cardData.name;
-    overlayText.textContent = cardData.isReversed
-            ? cardData.meaning_rev
-            : cardData.meaning_up;
+    overlayContent.classList.remove(
+        'positive',
+        'negative'
+    );
+
+    if (cardData.isReversed) {
+        overlayText.textContent =
+            cardData.meaning_rev;
+
+        overlayContent.classList.add(
+            'negative'
+        );
+    }
+     else {
+        overlayText.textContent =
+            cardData.meaning_up;
+
+        overlayContent.classList.add(
+            'positive'
+        );
+    }
 
     overlay.classList.remove('hidden');
 }
