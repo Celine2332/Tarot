@@ -3,49 +3,65 @@ const cardContainer = document.getElementById('card-container');
 const overlay = document.getElementById('overlay');
 const overlayTitle = document.getElementById('overlay-title');
 const overlayText = document.getElementById('overlay-text');
+const GAME_MODES = {
+    1: 4,
+    2: 3,
+    3: 2
+};
 
+//Vorebereitung des Spiels
+init();
+async function init() {
+    const round = getCurrentRound();
+    const cardCount = GAME_MODES[round];
+    const cards = await loadCards(cardCount);
 
+    createCards(cards);
+}
+
+// ermittelt die aktuelle Runde aus der URL, Standard ist 1
+function getCurrentRound() {
+    const params = new URLSearchParams(window.location.search);
+    const round = Number(params.get('round')) || 1;
+    return round;
+}
 
 // API
 
-async function loadCards(startingNummber) {
+async function loadCards(amount) {
 
-    const url = 'https://tarotapi.dev/api/v1/cards/random?n=' + startingNummber;
+    const url ='https://tarotapi.dev/api/v1/cards/random?n=${amount}';
 
     try {
         const response = await fetch(url);
         const data = await response.json();
         return data.cards;
+    } 
 
-    } catch(error) {
+    catch(error) {
         console.error(error);
-
+        return [];
     }
 }
 
 
 
 
+
 // Game Start
-
-init();
-
-async function init() {
-    const cards = await loadCards(4);
-    createCards(cards);
-    console.info(cards);
-}
-
 
 // Karten erzeugen
 function createCards(cards) {
-    for (const cardData of cards) {
+    cards.forEach((cardData, index) => {
+
         const shortName = cardData.name_short;
-        const imagePath = `assets/images/${shortName}.png`;
+        const imagePath =`assets/images/${shortName}.png`;
         const card = document.createElement('div');
-// Kartencontainer
+
+//Kartencontainer mit class
         card.classList.add('karten');
-//Kartenlayout und Rückseite
+
+//Karteninhalt mit Vorder- und Rückseite
         card.innerHTML = `
             <div class="card">
                 <div class="face face-front">
@@ -56,36 +72,44 @@ function createCards(cards) {
                     <img src="assets/images/back.png" alt="back">
                 </div>
             </div>
-        `;
+`;
         cardContainer.appendChild(card);
 
-// definiert position und start der kartenanimation
-    setTimeout(() => {
-        const index = cards.indexOf(cardData);
-        card.classList.add(`pos-${index}`);
-    }, 1000);
-
-        const innerCard = card.querySelector('.card');
-     
-// Karten automatisch umdrehen
+// Kartenpositionierung mit Verzögerung
         setTimeout(() => {
-            innerCard.classList.add('flipped');
-        }, 3200);
+            card.classList.add(`pos-${index}`);
+        }, 1200);
 
-// Overlay öffnen
+//Overlay anzeigen bei Klick auf Karte
         card.addEventListener('click', () => {
             showOverlay(cardData);
         });
-    }
+    });
+
+    startCardAnimation();
 }
 
+// Karten umdrehen nach 3,2 Sekunden
+function startCardAnimation() {
+    setTimeout(() => {
+        document
+            .querySelectorAll('.card')
+            .forEach(card => {
+                card.classList.add('flipped');
+            });
+
+//------------------------------------------------------button platzhalter
+        showNextButton();
+
+    }, 3200);
+}
+//---------------------------------------------------------
 
 // Overlay anzeigen
 function showOverlay(cardData) {
     overlayTitle.textContent = cardData.name;
     overlayText.textContent = cardData.meaning_up;
     overlay.classList.remove('hidden');
-
 }
 
 // Overlay schließen
@@ -94,8 +118,28 @@ overlay.addEventListener('click', () => {
 });
 
 
+//------------------------------------------------------------Platzhalter für next round button
 
+function showNextButton() {
+    const nextButton =
+        document.getElementById('nextButton');
+    if (!nextButton) return;
+    nextButton.classList.remove('hidden');
+}
 
+function goToNextRound() {
+    const currentRound = getCurrentRound();
+    const nextRound = currentRound + 1;
+
+    if (!GAME_MODES[nextRound]) {
+        alert('Spiel beendet');
+        return;
+    }
+
+    window.location.href =
+        `game.html?round=${nextRound}`;
+}
+//---------------------------------------------------------------------
 
 
 
