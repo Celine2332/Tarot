@@ -136,12 +136,13 @@ function startCardAnimation() {
                         cardElement.cardData;
                     const innerCard =
                         cardElement.querySelector('.card');
-
+//-----------------------------------------------------------------negative oder positive Karte
                     if (cardData.isReversed) {
                         innerCard.classList.add('negative');
                     } else {
                         innerCard.classList.add('positive');
                     }
+//----------------------------------------------------------------
                 });
 
 //------------------------------------------------------button platzhalter
