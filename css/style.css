@@ -41,7 +41,7 @@ body {
 }
 
 h1{
-    font-family: var(--f-titel);
+    font-family: var(--f-title);
 }
 
 .headline {
@@ -85,8 +85,49 @@ button {
     border-radius: 4.125rem;
 }
 
+.menu {
+    position: fixed;
+    top: var(--ga-large);
+    right: var(--ga-large);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.button {
+    position: fixed;
+    bottom: var(--ga-large);
+    right: var(--ga-large);
+    z-index: 500;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
 
+.menu-items.open {
+    display: flex;
+    opacity: 1;
+}
 
 
 /*Game*/

@@ -10,6 +10,14 @@ const GAME_MODES = {
     3: 2
 };
 
+// Hamburger Menü
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const menuItems = document.querySelector('.menu-items');
+
+hamburgerBtn.addEventListener('click', () => {
+    menuItems.classList.toggle('open');
+});
+
 //Vorebereitung des Spiels
 init();
 async function init() {
