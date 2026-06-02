@@ -38,20 +38,18 @@ const shuffleCnt = document.getElementById('shuffleCnt');
 const cardGameSection = document.querySelector('.cardGame');
 
 if (shuffleAnimation && shuffleCnt && cardGameSection) {
-    shuffleAnimation.addEventListener('click', () => {
+    cardGameSection.style.display = 'none';
+    shuffleAnimation.addEventListener('click', async () => {
         shuffleCnt.classList.add('hidden');
         cardGameSection.style.display = 'flex';
+        await init();
     });
-    // Hide cardGame initially
-    cardGameSection.style.display = 'none';
 }
 
 
 
 //Vorebereitung des Spiels
-if (cardContainer) {
-    init();
-}
+
 async function init() {
     const round = getCurrentRound();
     const cardCount = GAME_MODES[round];
