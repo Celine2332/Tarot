@@ -265,28 +265,59 @@ dotlottie-wc {
 
 
 /* Positionen der Karten */
-.pos-0 {
+
+/*Runde 1*/
+.round-1-pos-0 {
     top: 0;
     transform: translate(-50%, 0);
 }
 
-.pos-1 {
+.round-1-pos-1 {
     bottom: 100%;
     transform: translate(-50%, 120%);
 }
 
-.pos-2 {
+.round-1-pos-2 {
     top: 50%;
     left: 0;
     transition-delay: 600ms;
     transform: translate(0, -50%);
 }
 
-.pos-3 {
+.round-1-pos-3 {
     top: 50%;
     left: 100%;
     transition-delay: 1200ms;
     transform: translate(-100%, -50%);
+}
+
+/*Runde 2*/
+.round-2-pos-0 {
+    top: 0;
+    transform: translate(-50%, 0);
+}
+
+.round-2-pos-1 {
+    bottom: 100%;
+    transform: translate(90%, 65%);
+}
+
+.round-2-pos-2 {
+    top: 50%;
+    left: 0;
+    transition-delay: 600ms;
+    transform: translate(0, -50%);
+}
+
+/* Runde 3*/
+.round-3-pos-0 {
+    top: 0;
+    transform: translate(-50%, 0);
+}
+
+.round-3-pos-1 {
+    bottom: 100%;
+    transform: translate(-50%, 120%);
 }
 
 
@@ -456,6 +487,14 @@ dotlottie-wc {
         margin: var(--ga-medium);
     }
 
+/*Game*/
+
+    
+    .tarot-layout {
+        width: 500px;
+    }
+    
+/*Impressum*/
     .impressum1 {
         display: flex;
         flex-direction: column;
@@ -473,3 +512,20 @@ dotlottie-wc {
     }     
 }
 
+
+
+@media screen and (max-width: 600px) {
+
+    body {
+        margin: var(--ga-medium);
+    }
+
+/*Game*/
+   .karten {
+        width: 180px;
+    }
+    
+    .tarot-layout {
+        width: 400px;
+    }
+}

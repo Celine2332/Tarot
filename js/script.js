@@ -137,7 +137,10 @@ function createCards(cards) {
 
 // Kartenpositionierung mit Verzögerung
         setTimeout(() => {
-            card.classList.add(`pos-${index}`);
+    const round = getCurrentRound();
+    card.classList.add(
+        `round-${round}-pos-${index}`
+    );
         }, 1200);
 
 //Overlay anzeigen bei Klick auf Karte
