@@ -506,11 +506,39 @@ dotlottie-wc {
 
 /*Game*/
 
-    
     .tarot-layout {
-        width: 500px;
+        width: 320px;
+        height: 500px;
     }
-    
+
+    .karten {
+        width: 120px;
+    }
+
+    .round-1-pos-0 {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .round-1-pos-1 {
+        top: 280px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .round-1-pos-2 {
+        top: 140px;
+        left: 15px;
+        transform: none;
+    }
+
+    .round-1-pos-3 {
+        top: 140px;
+        left: auto;
+        right: 15px;
+        transform: none;
+    }
 /*Impressum*/
     .impressum1 {
         display: flex;
