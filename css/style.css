@@ -21,9 +21,11 @@
 
     /*grössen*/
     --ga-large: 2.5rem;
-    --ga-text: 1.3rem;
+    --ga-text: 1.5rem;
     --ga-medium: 1rem;
     --ga-small: 0.5rem;
+
+    --gr-text: 1.3rem;
 
 }
 
@@ -49,10 +51,11 @@ h1 {
 }
 
 p {
-    font-size: var(--ga-text);
+    font-size: var(--gr-text);
 }
+
 li {
-    font-size: var(--ga-text);
+    font-size: var(--gr-text);
 }
 main {
     position: relative;
