@@ -37,6 +37,7 @@ const shuffleAnimation = document.getElementById('shuffleAnimation');
 const shuffleCnt = document.getElementById('shuffleCnt');
 const cardGameSection = document.querySelector('.cardGame');
 
+// starts dealing cards after click
 if (shuffleAnimation && shuffleCnt && cardGameSection) {
     cardGameSection.style.display = 'none';
     shuffleAnimation.addEventListener('click', async () => {
