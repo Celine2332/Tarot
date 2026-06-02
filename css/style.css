@@ -224,6 +224,14 @@ dotlottie-wc {
 }
 /*Game*/
 
+.game-main{
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    max-height: none;
+}
+
+
 .cardGame {
     display: flex;
     flex-direction: column;
@@ -525,13 +533,10 @@ dotlottie-wc {
 
 @media screen and (max-width: 600px) {
 
-    body {
-        margin: var(--ga-medium);
-    }
 
 /*Game*/
    .karten {
-        width: 180px;
+        width: 150px;
     }
     
     .tarot-layout {
