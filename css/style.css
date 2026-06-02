@@ -222,6 +222,8 @@ button {
 dotlottie-wc {
     justify-content: center;
 }
+
+
 /*Game*/
 
 .game-main{
@@ -353,6 +355,7 @@ dotlottie-wc {
 /* Positiv und Negativ */
 .card.positive {
     border-color: #56969A;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.637);
     &:hover {
         box-shadow: 0 0 50px var(--hover-color);
     }
@@ -360,6 +363,7 @@ dotlottie-wc {
 
 .card.negative {
     border-color: #BE352F;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.637);
     &:hover {
         box-shadow: 0 0 50px var(--hover-color);
     }
