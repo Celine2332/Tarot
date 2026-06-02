@@ -70,6 +70,15 @@ async function init() {
         card.isReversed =
             card.value_int === lowestCard.value_int;
     });
+
+    console.table(
+    cards.map(card => ({
+        name: card.name,
+        short: card.name_short,
+        CardValue: cardValues[card.name_short],
+        lowest: card === lowestCard
+    }))
+);
 // ------------------------------------------------------------------------------------------
     createCards(cards);
 }
@@ -97,16 +106,42 @@ async function loadCards(amount) {
     }
 }
 
+// Kartenwerte für alle Karten, basierend auf der Tarot-Deck-Struktur
+const cardValues = {};
+let value = 78;
+
+// Major Arcana
+for (let i = 21; i >= 0; i--) {
+  cardValues[`ar${String(i).padStart(2, '0')}`] = value--;
+}
+
+// Suits
+const suits = ['cu', 'wa', 'pe', 'sw'];
+const ranks = [
+  'ac', 'ki', 'qu', 'kn', 'pa',
+  '10', '09', '08', '07', '06',
+  '05', '04', '03', '02'
+];
+
+for (const suit of suits) {
+  for (const rank of ranks) {
+    cardValues[suit + rank] = value--;
+  }
+}
+
+function getCardValue(card) {
+    return cardValues[card.name_short];
+}
+
 // Funktion, um die Karte mit dem niedrigsten Wert  finden--------------------------------------------
 function findLowestCard(cards) {
     return cards.reduce((lowest, current) => {
-        return current.value_int < lowest.value_int
+        return cardValues[current.name_short] < cardValues[lowest.name_short]
             ? current
             : lowest;
     });
 }
 //------------------------------------------------------------------------------------------------
-
 
 // Game Start
 
@@ -151,7 +186,6 @@ function createCards(cards) {
 
     startCardAnimation();
 }
-
 // Karten umdrehen nach 3,2 Sekunden
 
 function startCardAnimation() {
@@ -249,98 +283,3 @@ function goToNextRound() {
 
 window.goToNextRound = goToNextRound;
 //---------------------------------------------------------------------
-
-
-
-// Kartenwerte
-
-const cardValues = {
-  // 1. Major Arcana (Wert 78-60, 19 Karten)
-  'ar01': 78,
-  'ar02': 77,
-  'ar03': 76,
-  'ar04': 75,
-  'ar05': 74,
-  'ar06': 73,
-  'ar07': 72,
-  'ar08': 71,
-  'ar09': 70,
-  'ar10': 69,
-  'ar11': 68,
-  'ar12': 67,
-  'ar13': 66,
-  'ar14': 65,
-  'ar15': 64,
-  'ar16': 63,
-  'ar20': 62,
-  'ar21': 61,
-  'ar00': 60,
-  
-  // 2. Cups (Wert 59-45, 14 Karten: 1, dann 14-2)
-  'cu01': 59,
-  'cu14': 58,
-  'cu13': 57,
-  'cu12': 56,
-  'cu11': 55,
-  'cu10': 54,
-  'cu09': 53,
-  'cu08': 52,
-  'cu07': 51,
-  'cu06': 50,
-  'cu05': 49,
-  'cu04': 48,
-  'cu03': 47,
-  'cu02': 46,
-  
-  // 3. Wands (Wert 45-31, 14 Karten: 1, dann 14-2)
-  'wa01': 45,
-  'wa14': 44,
-  'wa13': 43,
-  'wa12': 42,
-  'wa11': 41,
-  'wa10': 40,
-  'wa09': 39,
-  'wa08': 38,
-  'wa07': 37,
-  'wa06': 36,
-  'wa05': 35,
-  'wa04': 34,
-  'wa03': 33,
-  'wa02': 32,
-  
-  // 4. Pentacles (Wert 31-17, 14 Karten: 1, dann 14-2)
-  'pe01': 31,
-  'pe14': 30,
-  'pe13': 29,
-  'pe12': 28,
-  'pe11': 27,
-  'pe10': 26,
-  'pe09': 25,
-  'pe08': 24,
-  'pe07': 23,
-  'pe06': 22,
-  'pe05': 21,
-  'pe04': 20,
-  'pe03': 19,
-  'pe02': 18,
-  
-  // 5. Swords (Wert 17-3, 14 Karten: 1, dann 14-2)
-  'sw01': 17,
-  'sw14': 16,
-  'sw13': 15,
-  'sw12': 14,
-  'sw11': 13,
-  'sw10': 12,
-  'sw09': 11,
-  'sw08': 10,
-  'sw07': 9,
-  'sw06': 8,
-  'sw05': 7,
-  'sw04': 6,
-  'sw03': 4,
-  'sw02': 3,  // Two of Swords = tiefster Wert!
-};
-
-//function getCardValue(card) {
-//  return cardValues[card.name_short] || 0;
-//}
