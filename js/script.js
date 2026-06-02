@@ -21,6 +21,31 @@ if (hamburgerBtn && menuItems) {
     });
 }
 
+const playerSelect = document.getElementById("playerSelect");
+if (playerSelect) {
+    playerSelect.addEventListener("change", (e) => {
+        const round = e.target.value;
+
+        if (round) {
+            window.location.href = `game.html?round=${round}`;
+        }
+    });
+}
+
+// Handle shuffle animation click to start card game
+const shuffleAnimation = document.getElementById('shuffleAnimation');
+const shuffleCnt = document.getElementById('shuffleCnt');
+const cardGameSection = document.querySelector('.cardGame');
+
+if (shuffleAnimation && shuffleCnt && cardGameSection) {
+    shuffleAnimation.addEventListener('click', () => {
+        shuffleCnt.classList.add('hidden');
+        cardGameSection.style.display = 'flex';
+    });
+    // Hide cardGame initially
+    cardGameSection.style.display = 'none';
+}
+
 
 
 //Vorebereitung des Spiels

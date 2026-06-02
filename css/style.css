@@ -152,6 +152,8 @@ TextPath {
 .menu-items.open {
     display: flex;
     opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
 }
 
 
