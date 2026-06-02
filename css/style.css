@@ -229,6 +229,7 @@ dotlottie-wc {
     flex-direction: column;
     min-height: auto;
     max-height: none;
+    overflow: hidden;
 }
 
 
@@ -310,8 +311,10 @@ dotlottie-wc {
 }
 
 .round-2-pos-1 {
-    top: 0;
-    transform: translate(90%, 65%);
+    top: 50%;
+    left: 100%;
+    transition-delay: 1200ms;
+    transform: translate(-100%, -50%);
 }
 
 .round-2-pos-2 {
@@ -500,17 +503,33 @@ dotlottie-wc {
 
 
 /*mobile*/
+
+@media screen and (max-width: 900px) {
+
+/*Game*/
+
+    .tarot-layout {
+        width: 600px;
+    }
+
+}
+
+
 @media screen and (max-width: 700px) {
 
     body {
         margin: var(--ga-medium);
+        padding: var(--ga-small);
     }
 
+    .unter-titel{
+        margin-top: var(--ga-large);
+    }
+    
 /*Game*/
 
-    
     .tarot-layout {
-        width: 500px;
+        width: 450px;
     }
     
 /*Impressum*/
@@ -544,4 +563,21 @@ dotlottie-wc {
     .tarot-layout {
         width: 400px;
     }
+}
+
+@media screen and (max-width: 500px) {
+
+
+/*Game*/
+   .karten {
+        width: 140px;
+    }
+    
+    .tarot-layout {
+        width: 300px;
+    }
+    .round-1-pos-1 {
+    top: 190px;
+    }
+
 }
