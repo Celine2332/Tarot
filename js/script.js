@@ -14,20 +14,19 @@ const GAME_MODES = {
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const menuItems = document.querySelector('.menu-items');
 
-try {
+if (hamburgerBtn && menuItems) {
     hamburgerBtn.addEventListener('click', () => {
         menuItems.classList.toggle('open');
         hamburgerBtn.classList.toggle('open');
     });
 }
-catch (error) {
-    console.log(error);
-}
 
 
 
 //Vorebereitung des Spiels
-init();
+if (cardContainer) {
+    init();
+}
 async function init() {
     const round = getCurrentRound();
     const cardCount = GAME_MODES[round];
@@ -191,10 +190,11 @@ function showOverlay(cardData) {
 }
 
 // Overlay schließen
-overlay.addEventListener('click', () => {
-    overlay.classList.add('hidden');
-});
-
+if (overlay) {
+    overlay.addEventListener('click', () => {
+        overlay.classList.add('hidden');
+    });
+}
 
 //------------------------------------------------------------Platzhalter für next round button
 
