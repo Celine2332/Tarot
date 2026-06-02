@@ -43,6 +43,10 @@ h1, h2, h3 {
     color: var(--text-color);
     margin: 0;
 }
+h1 {
+    font-size: 3rem;
+}
+
 p {
     font-size: var(--ga-text);
 }
@@ -209,6 +213,9 @@ button {
     flex: 1;
 }
 
+dotlottie-wc {
+    justify-content: center;
+}
 /*Game*/
 
 .cardGame {
@@ -257,7 +264,6 @@ button {
 /* Positionen der Karten */
 .pos-0 {
     top: 0;
-   
     transform: translate(-50%, 0);
 }
 

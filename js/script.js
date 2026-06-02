@@ -14,10 +14,17 @@ const GAME_MODES = {
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const menuItems = document.querySelector('.menu-items');
 
-hamburgerBtn.addEventListener('click', () => {
-    menuItems.classList.toggle('open');
-    hamburgerBtn.classList.toggle('open');
-});
+try {
+    hamburgerBtn.addEventListener('click', () => {
+        menuItems.classList.toggle('open');
+        hamburgerBtn.classList.toggle('open');
+    });
+}
+catch (error) {
+    console.log(error);
+}
+
+
 
 //Vorebereitung des Spiels
 init();
