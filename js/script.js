@@ -112,21 +112,21 @@ let value = 78;
 
 // Major Arcana
 for (let i = 21; i >= 0; i--) {
-  cardValues[`ar${String(i).padStart(2, '0')}`] = value--;
+    cardValues[`ar${String(i).padStart(2, '0')}`] = value--;
 }
 
 // Suits
 const suits = ['cu', 'wa', 'pe', 'sw'];
 const ranks = [
-  'ac', 'ki', 'qu', 'kn', 'pa',
-  '10', '09', '08', '07', '06',
-  '05', '04', '03', '02'
+    'ac', 'ki', 'qu', 'kn', 'pa',
+    '10', '09', '08', '07', '06',
+    '05', '04', '03', '02'
 ];
 
 for (const suit of suits) {
-  for (const rank of ranks) {
-    cardValues[suit + rank] = value--;
-  }
+    for (const rank of ranks) {
+        cardValues[suit + rank] = value--;
+    }
 }
 
 function getCardValue(card) {
