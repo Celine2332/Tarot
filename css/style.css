@@ -284,7 +284,8 @@ dotlottie-wc {
 }
 
 .round-1-pos-1 {
-    bottom: 100%;
+    top: 80px;
+    left: 50%;
     transform: translate(-50%, 120%);
 }
 
@@ -309,7 +310,7 @@ dotlottie-wc {
 }
 
 .round-2-pos-1 {
-    bottom: 100%;
+    top: 0;
     transform: translate(90%, 65%);
 }
 
@@ -327,7 +328,8 @@ dotlottie-wc {
 }
 
 .round-3-pos-1 {
-    bottom: 100%;
+    top: 80px;
+    left: 50%;
     transform: translate(-50%, 120%);
 }
 
