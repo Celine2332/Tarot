@@ -16,6 +16,7 @@ const menuItems = document.querySelector('.menu-items');
 
 hamburgerBtn.addEventListener('click', () => {
     menuItems.classList.toggle('open');
+    hamburgerBtn.classList.toggle('open');
 });
 
 //Vorebereitung des Spiels

@@ -6,3 +6,70 @@
     <title>Fortunate Finalists</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+<body>
+    <main>
+        <nav class="menu" id="menu">
+            <button class="hamburger" id="hamburgerBtn">
+                <div class="burgerline" id="line1"></div>
+                <div class="burgerline" id="line2"></div>
+                <div class="burgerline" id="line3"></div>
+            </button>
+            <div class="menu-items">
+                <a href="index.html">
+                <button class="menu-item" data-action="home"><img src="assets/menu-icons/house.svg" alt="home"></button>
+                </a>
+                <a href="game.html">
+                    <button class="menu-item" data-action="play"><img src="assets/menu-icons/play.svg" alt="play"></button>
+                </a>
+
+                <a href="players.html">
+                    <button class="menu-item" data-action="replay"><img src="assets/menu-icons/replay.svg" alt="replay"></button>
+                </a>
+
+                <a href="anleitung.html">
+                    <button class="menu-item" data-action="tutorial"><img src="assets/menu-icons/Tutorial.svg" alt="tutorial"></button>
+                </a>
+
+                <a href="Impressum.html">
+                    <button class="menu-item" data-action="impressum"><img src="assets/menu-icons/i.svg" alt="impressum"></button>
+                </a>
+            </div>
+        </nav>
+            <div class="anleitung">
+                <h1 class="headline">you want to be a fortunate winner?</h1>
+                <p>Fortunate Finalists is a simple elimination game of chance designed to decide everyday tasks—like who does the dishes or takes out the trash—while revealing your fate one round at a time.</p>
+                <div class="steps">
+                    <div class="step">
+                        <h2>1. setup</h2>
+                        <ul>
+                            <li>Pick 2-4 players.</li>
+                            <li>Place your device in the center; each player claims one screen edge.</li>
+                            <li>click the "play" button to start the game.</li>
+                        </ul>
+                        <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
+                        <dotlottie-wc src="https://lottie.host/d07108f2-79b9-4101-8653-fcd16e584ffa/vUHHYU9CZq.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>                   
+                    </div>
+                    <div class="step">
+                        <h2>2. play</h2>
+                        <ul>
+                            <li>Shuffle: Cards spin endlessly. Tap the screen anytime to stop.</li>
+                            <li>Reveal: One card per player flips.</li>
+                            <li>Eliminate: The Red Card (lowest fate) is out! That player leaves the table.</li>
+                        </ul>
+                    </div>
+                    <div class="step">
+                        <h2>3. win</h2>
+                        <ul>
+                            <li>Repeat until only two players remain.</li>
+                            <li>The survivor is the Fortunate Finalist.</li>
+                            <li>Losers: Agree on your own punishment!</li>
+                            <li>Click "play again" to start a new game.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <script src="js/script.js" type="module"></script>
+
+</body>
+</html>
