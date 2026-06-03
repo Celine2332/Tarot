@@ -1,3 +1,14 @@
+# Arbeits Refelexion
+
+Unsere Webseite Fortunate Finalist soll Tarot und Kartenspiel vereinigen. Wir haben ein einfaches vier Spieler Kartenspiel erstellt, dass unterschidliche Informationen aus der eingebetteten API abrufen soll.
+
+Da keine Bilder für die Karten hinterlegt waren, mussten wir diese selber mit dem passenden Name_Short in den Assets abspeichern. 
+Das grundsätzliche einbinden der API war nicht wirklich eine Herausvorderung, aber die Informationen der API an den richtigen Stellen angezeigt bekommen stellte sich als knifflig dar. 
+Wir mussten zunächst verstehen wie genau .html .css und .js zusammenarbeiten damit wir das Spiel aufbauen konnten.
+
+
+
+
 # Tarot
 
 Project_IM2
