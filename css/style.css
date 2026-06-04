@@ -72,14 +72,6 @@ nav.menu {
     top: var(--ga-large);
 }
 
-.button {
-    position: absolute;
-    right: var(--ga-large);
-    bottom: -1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .title {
     display: flex;
@@ -196,6 +188,14 @@ button {
     cursor: pointer;
 }
 
+#nextButton {
+    position: fixed;
+    bottom: var(--ga-large);
+    right: var(--ga-large);
+    z-index: 500;
+    transform: translateY(3rem);
+}
+
 .anleitung {
     display: flex;
     flex-direction: column;
@@ -226,7 +226,60 @@ dotlottie-wc {
 
 /*Game*/
 
+.shuffle_cnt {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.shuffle_overlays {
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: auto;
+}
+
+
+.radial_overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(68.32% 50% at 50% 50%, rgba(29, 21, 75, 0.00) 0%, #1D154B 100%);
+    pointer-events: none;
+}
+.shuffle_cnt > svg {
+    position: relative;
+    z-index: 3;
+}
+
+
+
+.small_overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(29, 21, 75, 0.00) 40%,
+        #0F0B26 100%
+    );
+    pointer-events: none;
+}
+
+#shuffleAnimation {
+    transform: translateY(23rem);
+    position: fixed;
+}
+/*next button*/
+
+#nextButton dotlottie-wc {
+    display: block;
+}   
+
 .game-main{
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: auto;
@@ -355,7 +408,6 @@ dotlottie-wc {
 /* Positiv und Negativ */
 .card.positive {
     border-color: #56969A;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.637);
     &:hover {
         box-shadow: 0 0 50px var(--hover-color);
     }
@@ -363,7 +415,6 @@ dotlottie-wc {
 
 .card.negative {
     border-color: #BE352F;
-    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.637);
     &:hover {
         box-shadow: 0 0 50px var(--hover-color);
     }

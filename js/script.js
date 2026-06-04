@@ -35,16 +35,27 @@ if (playerSelect) {
 // Handle shuffle animation click to start card game
 const shuffleAnimation = document.getElementById('shuffleAnimation');
 const shuffleCnt = document.getElementById('shuffleCnt');
+const shuffleOverlays = document.querySelector('.shuffle_overlays');
 const cardGameSection = document.querySelector('.cardGame');
 
-// starts dealing cards after click
-if (shuffleAnimation && shuffleCnt && cardGameSection) {
+let shuffleStarted = false;
+
+async function handleShuffleClick(e) {
+    if (shuffleStarted) return;
+    // ignore clicks on internal interactive elements (if any)
+    shuffleStarted = true;
+    if (cardGameSection) cardGameSection.style.display = 'none';
+    if (shuffleCnt) shuffleCnt.classList.add('hidden');
+    if (cardGameSection) cardGameSection.style.display = 'flex';
+    await init();
+}
+
+// starts dealing cards after click — accept clicks on the lottie, container, or overlays
+if (cardGameSection && shuffleCnt) {
     cardGameSection.style.display = 'none';
-    shuffleAnimation.addEventListener('click', async () => {
-        shuffleCnt.classList.add('hidden');
-        cardGameSection.style.display = 'flex';
-        await init();
-    });
+    if (shuffleAnimation) shuffleAnimation.addEventListener('click', handleShuffleClick);
+    shuffleCnt.addEventListener('click', handleShuffleClick);
+    if (shuffleOverlays) shuffleOverlays.addEventListener('click', handleShuffleClick);
 }
 
 
