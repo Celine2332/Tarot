@@ -486,11 +486,17 @@ dotlottie-wc {
 /* Overlay positiv und negativ */
 
 .overlay-content.positive {
-    background: #56969A;
+    background: linear-gradient(
+            #56969A,
+            #253f41
+        );
 }
 
 .overlay-content.negative {
-    background: #BE352F;
+    background: linear-gradient(
+            #BE352F,
+            #6e1f1b
+    );
 }
 
 
@@ -537,7 +543,7 @@ dotlottie-wc {
     background:
         linear-gradient(
             #56969A,
-            #0e0a24
+            #253f41
         );
           transform: translateZ(10px);  
 }
