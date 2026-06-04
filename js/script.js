@@ -1,6 +1,8 @@
 // DOM Elemente
 const cardContainer = document.getElementById('card-container');
+let cardsClickable = false;
 const overlay = document.getElementById('overlay');
+let finalMode = false;
 const overlayTitle = document.getElementById('overlay-title');
 const overlayText = document.getElementById('overlay-text');
 const overlayContent = document.querySelector('.overlay-content');
@@ -31,6 +33,27 @@ if (playerSelect) {
         }
     });
 }
+
+
+//Buttons
+
+const startButton = document.getElementById('startButton');
+
+if (startButton) {
+    startButton.addEventListener('click', () => {
+        window.location.href = 'anleitung.html';
+    });
+}
+
+const playersButton = document.getElementById('playersButton');
+
+if (playersButton) {
+    playersButton.addEventListener('click', () => {
+        window.location.href = 'players.html';
+    });
+}
+
+
 
 // Handle shuffle animation click to start card game
 const shuffleAnimation = document.getElementById('shuffleAnimation');
@@ -190,10 +213,20 @@ function createCards(cards) {
 
 //Overlay anzeigen bei Klick auf Karte
         card.addEventListener('click', () => {
+    if (!cardsClickable) return;
+            if(finalMode) return;
+
+            const currentRound = getCurrentRound();
+            if (
+                currentRound === 3 &&
+                !cardData.isReversed
+            ) {
+                showFinalWinner(card, cardData);
+                return;
+            }
             showOverlay(cardData);
         });
     });
-
     startCardAnimation();
 }
 // Karten umdrehen nach 3,2 Sekunden
@@ -208,6 +241,7 @@ function startCardAnimation() {
 
 // Nach dem Umdrehen Rahmen anzeigen
         setTimeout(() => {
+        cardsClickable = true;
             document
                 .querySelectorAll('.karten')
                 .forEach(cardElement => {
@@ -264,9 +298,15 @@ function showOverlay(cardData) {
 // Overlay schließen
 if (overlay) {
     overlay.addEventListener('click', () => {
+                if (finalMode) return;
         overlay.classList.add('hidden');
     });
 }
+
+
+// Gewinnerkarte
+
+
 
 //------------------------------------------------------------Platzhalter für next round button
 
@@ -282,13 +322,93 @@ function goToNextRound() {
     const nextRound = currentRound + 1;
 
 // hier sollte anschliessend zum fortunate finalist gewechselt werden
-    if (!GAME_MODES[nextRound]) {
-        alert('Spiel beendet');
-        return;
-    }
+        if (!GAME_MODES[nextRound]) {
+            window.location.href = 'index.html';
+            return;
+        }
 
     window.location.href =
         `game.html?round=${nextRound}`;
+}
+
+
+//gewinner
+function showFinalWinner(cardElement, cardData) {
+
+    finalMode = true;
+
+    // andere Karte ausblenden
+    document.querySelectorAll('.karten')
+        .forEach(card => {
+
+            if (card !== cardElement) {
+                card.classList.add('fade-out');
+            }
+
+        });
+
+    // Gewinnerkarte animieren
+    cardElement.classList.add('winner-card');
+const title = document.createElement('div');
+
+title.classList.add('winner-title');
+
+title.innerHTML = `
+    Dear Player,<br>
+    you are a fortunate finalist!
+`;
+
+document.body.appendChild(title);
+
+    // Sternenhintergrund anzeigen
+createStars();
+    
+function createStars(){
+
+    for(let i = 0; i < 12; i++){
+
+        const star = document.createElement('div');
+
+        star.classList.add('star');
+
+        star.style.left =
+            Math.random() * 100 + '%';
+
+        star.style.top =
+            Math.random() * 100 + '%';
+
+        star.style.animationDelay =
+            Math.random() * 1.8 + 's';
+
+        document.body.appendChild(star);
+
+    }
+
+}
+
+    // Rückseite der Karte ersetzen
+    const backFace =
+        cardElement.querySelector('.face-back');
+
+backFace.innerHTML = `
+    <div class="winner-content">
+        <h3>${cardData.name.toLowerCase()}</h3>
+        <p>${cardData.meaning_up}</p>
+    </div>
+`;
+
+    // Karte wieder umdrehen
+    const innerCard =
+        cardElement.querySelector('.card');
+
+    innerCard.classList.remove('flipped');
+
+    // Klick zum Umschalten
+
+
+cardElement.addEventListener('click', () => {
+    innerCard.classList.toggle('flipped');
+});
 }
 
 window.goToNextRound = goToNextRound;
