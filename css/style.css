@@ -665,11 +665,12 @@ dotlottie-wc {
         margin-top: var(--ga-large);
     }
     
-/*Game*/
 
+/*Game*/
     .tarot-layout {
         width: 450px;
     }
+  
     
 /*Impressum*/
     .impressum1 {
@@ -693,7 +694,6 @@ dotlottie-wc {
 
 @media screen and (max-width: 600px) {
 
-
 /*Game*/
    .karten {
         width: 150px;
@@ -704,8 +704,8 @@ dotlottie-wc {
     }
 }
 
-@media screen and (max-width: 500px) {
 
+@media screen and (max-width: 500px) {
 
 /*Game*/
    .karten {
