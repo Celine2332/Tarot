@@ -81,15 +81,6 @@ if (cardGameSection && shuffleCnt) {
     if (shuffleOverlays) shuffleOverlays.addEventListener('click', handleShuffleClick);
 }
 
-//select player number
-document.getElementById("playerSelect").addEventListener("change", (e) => {
-    const round = e.target.value;
-
-    if (round) {
-        window.location.href = `game.html?round=${round}`;
-    }
-});
-
 
 //Vorebereitung des Spiels
 
@@ -109,7 +100,7 @@ async function init() {
 
     cards.forEach(card => {
         card.isReversed =
-            card.value_int === lowestCard.value_int;
+            cardValues[card.name_short] === cardValues[lowestCard.name_short];
     });
 
     console.table(

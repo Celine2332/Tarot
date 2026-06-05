@@ -127,50 +127,31 @@ TextPath {
 
 .menu-items {
     background-color: var(--menu-color);
-    border-radius: 30px;
     border: 2px solid var(--text-color);
     display: flex;
     width: 4.1875rem;
-    padding: 1.3125rem 0.8125rem;
+    padding: 1rem 0.8rem;
     flex-direction: column;
     align-items: center;
-    gap: 1.375rem;
-    border-radius: 4.125rem;
-
+    gap: 1rem;
+    border-radius: 4rem;
     opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
-    
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .menu-items.open {
-    display: flex;
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
 }
 
 
 .menu {
-    position: fixed;
-    top: var(--ga-large);
-    right: var(--ga-large);
-    z-index: 1000;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     align-items: center;
 }
 
-.title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-}
 
 .button {
     position: fixed;
