@@ -800,6 +800,9 @@ body.game-body {
 
 
 @media screen and (max-width: 700px) {
+    .shuffle_text {
+        scale: 0.8;
+    }
     h1 {
         font-size: 2.5rem;
     }
@@ -880,6 +883,7 @@ body.game-body {
 
 @media screen and (max-width: 600px) {
 
+
     body {
         padding: var(--ga-small);
     }
@@ -933,10 +937,19 @@ body.game-body {
 }
 
 @media screen and (max-width: 500px) {
+    .shuffle_text {
+        scale: 0.5;
+        margin-top: 10rem;
+    }
 
 
 /*Game*/
-   .karten {
+
+    #shuffleAnimation {
+        scale: 0.8;
+        transform: translateY(30rem);
+    }
+    .karten {
         width: 140px;
     }
     
