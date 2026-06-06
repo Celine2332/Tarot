@@ -55,7 +55,18 @@ if (playersButton) {
     });
 }
 
+const lastStep = document.getElementById('lastStep');
+if (playersButton && lastStep) {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            playersButton.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
 
+observer.observe(lastStep);
+}
 
 // Handle shuffle animation click to start card game
 const shuffleAnimation = document.getElementById('shuffleAnimation');
@@ -283,7 +294,7 @@ function showOverlay(cardData) {
             'negative'
         );
     }
-     else {
+    else {
         overlayText.textContent =
             cardData.meaning_up;
 
@@ -307,10 +318,17 @@ if (overlay) {
 // Next round button
 
 function showNextButton() {
-    const nextButton =
-        document.getElementById('nextButton');
-    if (!nextButton) return;
-    nextButton.classList.remove('hidden');
+    const nextButton = document.getElementById('nextButton');
+    const finalButton = document.getElementById('finalButton');
+    const round = getCurrentRound();
+
+    if (round === 3) {
+        finalButton?.classList.remove('hidden');
+        nextButton?.classList.add('hidden');
+    } else {
+        nextButton?.classList.remove('hidden');
+        finalButton?.classList.add('hidden');
+    }
 }
 
 function goToNextRound() {
@@ -325,6 +343,10 @@ function goToNextRound() {
 
     window.location.href =
         `game.html?round=${nextRound}`;
+}
+
+function goToFinalAction() {
+    window.location.href = 'index.html';
 }
 
 
@@ -395,4 +417,5 @@ function showFinalWinner(cardElement, cardData) {
 }
 
 window.goToNextRound = goToNextRound;
+window.goToFinalAction = goToFinalAction;
 //---------------------------------------------------------------------

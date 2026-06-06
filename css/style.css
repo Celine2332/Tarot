@@ -83,7 +83,6 @@ nav.menu {
     z-index: 1;
 }
 
-
 .hamburger {
     display: flex;
     flex-direction: column;
@@ -158,19 +157,14 @@ button {
     cursor: pointer;
 }
 
-#nextButton {
-    position: fixed;
-    bottom: var(--ga-large);
-    right: var(--ga-large);
-    z-index: 500;
-    transform: translateY(3rem);
-}
-
 /* Anleitung */
 
 .anleitung_main {
     max-height: none;
     min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .anleitung {
     display: flex;
@@ -195,8 +189,20 @@ button {
     flex: 1;
 }
 
+#lastStep {
+    margin-bottom: 10rem;
+}
 
+#playersButton {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
 
+#playersButton.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
 
 
 /* Player */
@@ -224,6 +230,14 @@ button {
 
 
 .player_cnt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    /* make the container fill the viewport (accounting for body padding) so
+       its contents are vertically centered in the view */
+    min-height: calc(100vh - calc(var(--ga-large) * 2));
     position: relative;
 }
 
@@ -296,11 +310,23 @@ body.game-body {
     transform: translateY(23rem);
     position: fixed;
 }
-/*next button*/
 
-#nextButton dotlottie-wc {
-    display: block;
-}   
+/*next button*/
+#nextButton {
+    position: fixed;
+    bottom: var(--ga-large);
+    right: var(--ga-large);
+    z-index: 500;
+    transform: translateY(3rem);
+}
+
+#finalButton {
+    position: fixed;
+    bottom: var(--ga-large);
+    right: var(--ga-large);
+    z-index: 500;
+    transform: translateY(3rem);
+}
 
 .game-main{
     position: relative;
@@ -582,7 +608,7 @@ body.game-body {
 
 .winner-title{
     position: fixed;
-    top: 6rem;
+    top: 3rem;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -729,6 +755,16 @@ body.game-body {
     .title {
         scale: 0.8;
     }
+
+    .headline {
+    margin-top: 7rem;
+    line-height: 1.2;
+    }
+
+    #playerHeadline {
+        margin-top: 0rem;
+        line-height: 1.2;
+    }
 /*Game*/
 
     .tarot-layout {
@@ -764,12 +800,13 @@ body.game-body {
 
 
 @media screen and (max-width: 700px) {
-
-.steps {
-    flex-direction: column;
-    gap: var(--ga-large);
-}
-
+    h1 {
+        font-size: 2.5rem;
+    }
+    .steps {
+        flex-direction: column;
+        gap: var(--ga-large);
+    }
 
     body.game-body {
         margin: var(--ga-small);
@@ -807,6 +844,7 @@ body.game-body {
     .winner-title{
         font-size: 2rem;
 }
+
 
 
 
@@ -873,7 +911,7 @@ body.game-body {
 }
 
 /*Game*/
-   .karten {
+    .karten {
         width: 150px;
     }
     
@@ -889,8 +927,10 @@ body.game-body {
     .winner-content h3 {
     padding-top: 2rem;
 }
+#nextButton {
+    scale: 0.8;
 }
-
+}
 
 @media screen and (max-width: 500px) {
 
