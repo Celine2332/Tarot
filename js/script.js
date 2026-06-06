@@ -12,6 +12,8 @@ const GAME_MODES = {
     3: 2
 };
 
+
+
 // Hamburger Menü
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const menuItems = document.querySelector('.menu-items');
@@ -35,8 +37,8 @@ if (playerSelect) {
 }
 
 
-//Buttons
 
+//Buttons
 const startButton = document.getElementById('startButton');
 
 if (startButton) {
@@ -82,8 +84,8 @@ if (cardGameSection && shuffleCnt) {
 }
 
 
-//Vorebereitung des Spiels
 
+//Vorebereitung des Spiels
 async function init() {
     const round = getCurrentRound();
     const cardCount = GAME_MODES[round];
@@ -122,6 +124,7 @@ function getCurrentRound() {
 }
 
 
+
 // API
 
 async function loadCards(amount) {
@@ -137,6 +140,8 @@ async function loadCards(amount) {
         return [];
     }
 }
+
+
 
 // Kartenwerte für alle Karten, basierend auf der Tarot-Deck-Struktur
 const cardValues = {};
@@ -175,6 +180,8 @@ function findLowestCard(cards) {
 }
 //------------------------------------------------------------------------------------------------
 
+
+
 // Game Start
 
 // Karten erzeugen
@@ -188,6 +195,7 @@ function createCards(cards) {
 //Kartencontainer mit class für css
         card.classList.add('karten');
         card.cardData = cardData;
+
 //Karteninhalt mit Vorder- und Rückseite
         card.innerHTML = `
             <div class="card">
@@ -204,32 +212,29 @@ function createCards(cards) {
 
 // Kartenpositionierung mit Verzögerung
         setTimeout(() => {
-    const round = getCurrentRound();
-    card.classList.add(
-        `round-${round}-pos-${index}`
-    );
+            const round = getCurrentRound();
+            card.classList.add(
+                `round-${round}-pos-${index}`
+            );
         }, 1200);
 
 //Overlay anzeigen bei Klick auf Karte
         card.addEventListener('click', () => {
-    if (!cardsClickable) return;
-            if(finalMode) return;
+            if (!cardsClickable) return;
+                if(finalMode) return;
 
-            const currentRound = getCurrentRound();
-            if (
-                currentRound === 3 &&
-                !cardData.isReversed
-            ) {
-                showFinalWinner(card, cardData);
-                return;
-            }
-            showOverlay(cardData);
+                const currentRound = getCurrentRound();
+                if (currentRound === 3 &&
+                    !cardData.isReversed) {
+                    showFinalWinner(card, cardData);
+                    return;}
+                showOverlay(cardData);
+            });
         });
-    });
     startCardAnimation();
 }
-// Karten umdrehen nach 3,2 Sekunden
 
+// Karten umdrehen nach 3,2 Sekunden
 function startCardAnimation() {
     setTimeout(() => {
         document
@@ -256,12 +261,8 @@ function startCardAnimation() {
                     }
 //----------------------------------------------------------------
                 });
-
-//------------------------------------------------------button platzhalter
         showNextButton();
-//---------------------------------------------------------
         }, 800);
-
     }, 3200);
 
 }
@@ -303,11 +304,7 @@ if (overlay) {
 }
 
 
-// Gewinnerkarte
-
-
-
-//------------------------------------------------------------Platzhalter für next round button
+// Next round button
 
 function showNextButton() {
     const nextButton =
@@ -320,7 +317,7 @@ function goToNextRound() {
     const currentRound = getCurrentRound();
     const nextRound = currentRound + 1;
 
-// hier sollte anschliessend zum fortunate finalist gewechselt werden
+// Spielende - zurück zum Menu
         if (!GAME_MODES[nextRound]) {
             window.location.href = 'index.html';
             return;
@@ -331,74 +328,70 @@ function goToNextRound() {
 }
 
 
-//gewinner
+// Gewinnerkarte
 function showFinalWinner(cardElement, cardData) {
 
     finalMode = true;
 
-    // andere Karte ausblenden
+// andere Karte ausblenden
     document.querySelectorAll('.karten')
         .forEach(card => {
 
             if (card !== cardElement) {
                 card.classList.add('fade-out');
             }
-
         });
 
-    // Gewinnerkarte animieren
+// Gewinnerkarte animieren
     cardElement.classList.add('winner-card');
-const title = document.createElement('div');
+        const title = document.createElement('div');
 
-title.classList.add('winner-title');
+    title.classList.add('winner-title');
 
-title.innerHTML = `
-    Dear Player,<br>
-    you are a fortunate finalist!
-`;
+    title.innerHTML = `
+        Dear Player,<br>
+        you are a fortunate finalist!
+    `;
 
-document.body.appendChild(title);
+    document.body.appendChild(title);
 
     // Sternenhintergrund anzeigen
-createStars();
-    
-function createStars(){
-    for(let i = 0; i < 27; i++){
-        const star = document.createElement('div');
-        star.classList.add('star');
-        star.style.left =
-            Math.random() * 100 + '%';
-        star.style.top =
-            Math.random() * 100 + '%';
-        star.style.animationDelay =
-            Math.random() * 1.8 + 's';
-        document.body.appendChild(star);
+    createStars();
+        
+    function createStars(){
+        for(let i = 0; i < 27; i++){
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left =
+                Math.random() * 100 + '%';
+            star.style.top =
+                Math.random() * 100 + '%';
+            star.style.animationDelay =
+                Math.random() * 1.8 + 's';
+            document.body.appendChild(star);
+        }
     }
-}
 
-    // Rückseite der Karte ersetzen
+// Rückseite der Karte ersetzen
     const backFace =
         cardElement.querySelector('.face-back');
 
-backFace.innerHTML = `
-    <div class="winner-content">
-        <h3>${cardData.name.toLowerCase()}</h3>
-        <p>${cardData.meaning_up}</p>
-    </div>
-`;
+    backFace.innerHTML = `
+        <div class="winner-content">
+            <h3>${cardData.name.toLowerCase()}</h3>
+            <p>${cardData.meaning_up}</p>
+        </div>
+    `;
 
-    // Karte wieder umdrehen
+// Karte wieder umdrehen
     const innerCard =
         cardElement.querySelector('.card');
 
     innerCard.classList.remove('flipped');
 
-    // Klick zum Umschalten
-
-
-cardElement.addEventListener('click', () => {
-    innerCard.classList.toggle('flipped');
-});
+    cardElement.addEventListener('click', () => {
+        innerCard.classList.toggle('flipped');
+    });
 }
 
 window.goToNextRound = goToNextRound;
