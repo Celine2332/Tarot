@@ -59,15 +59,14 @@ li {
 }
 main {
     position: relative;
-    min-height: calc(100vh - calc(var(--ga-large) * 2));
-    max-height: calc(100vh - calc(var(--ga-large) * 2));
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 
 nav.menu {
-    position: absolute;
+    position: fixed;
     right: var(--ga-large);
     top: var(--ga-large);
 }
@@ -84,17 +83,6 @@ nav.menu {
     z-index: 1;
 }
 
-TextPath {
-    margin: 0;
-    font-family: var(--f-titel);
-    color: var(--text-color);
-}
-
-.button dotlottie-wc {
-    width: clamp(220px, 26vw, 300px);
-    height: clamp(220px, 26vw, 300px);
-    display: block;
-}
 
 .hamburger {
     display: flex;
@@ -150,6 +138,7 @@ TextPath {
     flex-direction: column;
     gap: 2rem;
     align-items: center;
+    z-index: 100;
 }
 
 
@@ -177,6 +166,12 @@ button {
     transform: translateY(3rem);
 }
 
+/* Anleitung */
+
+.anleitung_main {
+    max-height: none;
+    min-height: auto;
+}
 .anleitung {
     display: flex;
     flex-direction: column;
@@ -200,9 +195,8 @@ button {
     flex: 1;
 }
 
-dotlottie-wc {
-    justify-content: center;
-}
+
+
 
 
 /* Player */
@@ -701,7 +695,8 @@ body.game-body {
 /*mobile*/
 
 @media screen and (max-width: 1200px) {
-.winner-card{
+
+    .winner-card{
     transform:
         translate(-50%, -50%)
         scale(1.4);
@@ -731,6 +726,9 @@ body.game-body {
 
 @media screen and (max-width: 900px) {
 
+    .title {
+        scale: 0.8;
+    }
 /*Game*/
 
     .tarot-layout {
@@ -766,6 +764,11 @@ body.game-body {
 
 
 @media screen and (max-width: 700px) {
+
+.steps {
+    flex-direction: column;
+    gap: var(--ga-large);
+}
 
 
     body.game-body {
@@ -839,6 +842,36 @@ body.game-body {
 
 @media screen and (max-width: 600px) {
 
+    body {
+        padding: var(--ga-small);
+    }
+
+    .title {
+        scale: 0.6;
+    }
+    .button dotlottie-wc {
+        scale:0.8;
+        
+    }
+    .button {
+        transform: translateY(5rem);
+    }
+
+    #startButton {
+        transform: translateY(5rem);
+    }
+
+    nav.menu {
+        scale: 0.8;
+        right: var(--ga-small);
+        top: var(--ga-small);
+}
+
+.steps {
+    flex-direction: column;
+    gap: var(--ga-large);
+}
+
 /*Game*/
    .karten {
         width: 150px;
@@ -860,6 +893,7 @@ body.game-body {
 
 
 @media screen and (max-width: 500px) {
+
 
 /*Game*/
    .karten {
