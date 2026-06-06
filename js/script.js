@@ -363,7 +363,7 @@ document.body.appendChild(title);
 createStars();
     
 function createStars(){
-    for(let i = 0; i < 12; i++){
+    for(let i = 0; i < 27; i++){
         const star = document.createElement('div');
         star.classList.add('star');
         star.style.left =

@@ -205,6 +205,41 @@ dotlottie-wc {
 }
 
 
+/* Player */
+
+.player_select {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.75rem 3rem 0.75rem 1rem;
+    background: transparent;
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    border-radius: 1rem;
+    font-family: var(--f-text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+        &:hover {
+        box-shadow: 0 0 20px var(--hover-color);
+    }
+}
+
+.player_cnt {
+    position: relative;
+}
+
+
+.player_select{
+    background: #0b081d;
+    color: var(--text-color);
+    padding: 0.5rem;
+}
+
+
+
 /*Game*/
 
 body.game-body {
@@ -558,6 +593,7 @@ body.game-body {
 .winner-content h3 {
     font-size: 1.4rem;
     line-height: 1.5rem;
+    padding-top: 1rem;
 }
 
 .winner-content p {
@@ -665,6 +701,10 @@ body.game-body {
 .winner-title{
     top: 4rem;
     font-size: 2.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    width: auto;
+    transform: none;
 }
 
 .winner-content h3 {
@@ -748,12 +788,12 @@ body.game-body {
     }
   
     .winner-card{
-    top: 400px;
+    top: 450px;
+        width: 180px;
     }
 
     .winner-title{
-    font-size: 1.85rem;
-
+        font-size: 2rem;
 }
 
 
@@ -798,6 +838,15 @@ body.game-body {
     .tarot-layout {
         width: 400px;
     }
+
+        .winner-card{
+        top: 420px;
+        width: 170px;
+    }
+
+    .winner-content h3 {
+    padding-top: 2rem;
+}
 }
 
 
@@ -826,6 +875,13 @@ body.game-body {
         top: 37%;
     }
 
+    .winner-card{
+        top: 420px;
+        width: 150px;
+    }
+    .winner-content h3 {
+    padding-top: 5rem;
+    }
 }
 /*
 
