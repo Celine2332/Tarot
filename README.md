@@ -1,10 +1,11 @@
 # Arbeits Refelexion
 
-Unsere Webseite Fortunate Finalist soll Tarot und Kartenspiel vereinigen. Wir haben ein einfaches vier Spieler Kartenspiel erstellt, dass unterschidliche Informationen aus der eingebetteten API abrufen soll.
+Unsere Webseite Fortunate Finalist soll Tarot und Kartenspiel vereinigen. Wir haben ein vier Spieler Kartenspiel erstellt, dass unterschidliche Informationen aus einer API abrufen soll.
 
-Da keine Bilder für die Karten hinterlegt waren, mussten wir diese selber mit dem passenden Name_Short in den Assets abspeichern. 
-Das grundsätzliche einbinden der API war nicht wirklich eine Herausvorderung, aber die Informationen der API an den richtigen Stellen angezeigt bekommen stellte sich als knifflig dar. 
-Wir mussten zunächst verstehen wie genau .html .css und .js zusammenarbeiten damit wir das Spiel aufbauen konnten.
+
+Die Bilder der Tarotkarten waren in der API nicht hinterlegt. Alle 78 Karte mussten also einzeln in den assets gespeichert werden. Damit diese anschliessend richtig zugeordnet werden konnten, gaben wir den entsprechenden Karten den name_short. Anschliessend mussten wir herausfinden wie wir im JavaScript die Bilder der Karten einbinden konnten, was aber nach einigen Versuchen ohne Probleme funktionierte.
+
+Eine weitere Herausvorderung war das gemeinsame Arbeiten am selben Code. Unsere Art, wie wir im .css die die einzelnen Elemente angsprochen haben, unterschied sich etwas. Was dazu führte, dass wir im Verlauf eine neue Lösung suchen mussten, wie wir den main und body unterschiedlich ansprechen könn. Dies lösten wir, indem wir den betroffenen .html dem body und dem main eine class zugewiesen haben.
 
 
 
