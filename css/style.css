@@ -92,6 +92,7 @@ nav.menu {
 }
 
 .burgerline {
+    display: block;
     background-color: var(--text-color);
     width: 3.3125rem;
     height: 2px;
@@ -125,6 +126,10 @@ nav.menu {
     border-radius: 4rem;
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-items:hover {
+    box-shadow: 0 0 20px var(--hover-color);
 }
 
 .menu-items.open {
@@ -224,9 +229,10 @@ button {
     -webkit-appearance: none;
     -moz-appearance: none;
     position: relative;
-        &:hover {
-        box-shadow: 0 0 20px var(--hover-color);
-    }
+}
+
+.player_select:hover {
+    box-shadow: 0 0 20px var(--hover-color);
 }
 
 
@@ -279,7 +285,7 @@ body.game-body {
     z-index: 10;
     width: 100vw;
     height: 100vh;
-    pointer-events: auto;
+    pointer-events: initial;
 }
 
 
@@ -459,16 +465,18 @@ body.game-body {
 /* Positiv und Negativ */
 .card.positive {
     border-color: #56969A;
-    &:hover {
-        box-shadow: 0 0 50px var(--hover-color);
-    }
+}
+
+.card.positive:hover {
+    box-shadow: 0 0 50px var(--hover-color);
 }
 
 .card.negative {
     border-color: #BE352F;
-    &:hover {
-        box-shadow: 0 0 50px var(--hover-color);
-    }
+}
+
+.card.negative:hover {
+    box-shadow: 0 0 50px var(--hover-color);
 }
 
 /* umgedreht */
@@ -699,13 +707,14 @@ body.game-body {
     min-width: 35%;
 }
 
-.contactimpressum a{       
+.contactimpressum a{
     color: var(--text-color);
     text-decoration: none;
-    &:hover{
-        color: var(--accent);
-    }
 }
+
+.contactimpressum a:hover {
+    color: var(--accent);
+} 
 
 .textimpressum {
     min-width: 65%;
@@ -772,16 +781,12 @@ body.game-body {
         width: 600px;
     }
 
-    .card.positive {
-        &:hover { 
-                box-shadow: none;
-        }
+    .card.positive:hover {
+        box-shadow: none;
     }
 
-    .card.negative {
-        &:hover {
-            box-shadow: none;
-        }
+    .card.negative:hover {
+        box-shadow: none;
     }
 
     .round-1-pos-1 {
