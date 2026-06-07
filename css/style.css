@@ -63,6 +63,7 @@ main {
     align-items: center;
     justify-content: center;
     width: 100%;
+    min-height: calc(100vh - (var(--ga-large) * 2));
 }
 
 nav.menu {
@@ -585,7 +586,8 @@ body.game-body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 1.5rem;
     align-items: center;
     text-align: center;
     padding: var(--ga-small);
@@ -642,7 +644,7 @@ body.game-body {
 
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.637);
+    background: rgba(255, 255, 255, 0.479);
 
     z-index: 500;
 
@@ -740,7 +742,6 @@ body.game-body {
 .winner-content h3 {
     font-size: 1.4rem;
     line-height: 1.5rem;
-    padding-top: 1rem;
 }
 
 .winner-content p {
@@ -886,6 +887,7 @@ body.game-body {
 
     body {
         padding: var(--ga-small);
+        margin: var(--ga-small) var(--ga-medium);
     }
 
     .title {
@@ -928,9 +930,7 @@ body.game-body {
         width: 170px;
     }
 
-    .winner-content h3 {
-    padding-top: 2rem;
-}
+
 #nextButton {
     scale: 0.8;
 }
@@ -975,11 +975,5 @@ body.game-body {
         top: 420px;
         width: 150px;
     }
-    .winner-content h3 {
-        padding-top: 5rem;
-    }
 
-    .winner-content p {
-        padding-bottom: 5rem;
-    }
 }

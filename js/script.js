@@ -371,7 +371,7 @@ function showFinalWinner(cardElement, cardData) {
     title.classList.add('winner-title');
 
     title.innerHTML = `
-        Dear Player,<br>
+        dear player,<br>
         you are a fortunate finalist!
     `;
 
