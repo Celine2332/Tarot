@@ -1,154 +1,51 @@
-# Arbeits Refelexion
+# Arbeitsreflexion
+
+## Team
+
+- Céline Joss
+- Christel Hayoz
+
+## Kurzbeschreibung
 
 Unsere Webseite Fortunate Finalist soll Tarot und Kartenspiel vereinigen. Wir haben ein vier Spieler Kartenspiel erstellt, dass unterschidliche Informationen aus einer API abrufen soll.
 
+## Schwierigkeiten
 
 Die Bilder der Tarotkarten waren in der API nicht hinterlegt. Alle 78 Karte mussten also einzeln in den assets gespeichert werden. Damit diese anschliessend richtig zugeordnet werden konnten, gaben wir den entsprechenden Karten den name_short. Anschliessend mussten wir herausfinden wie wir im JavaScript die Bilder der Karten einbinden konnten, was aber nach einigen Versuchen ohne Probleme funktionierte.
 
 Eine weitere Herausvorderung war das gemeinsame Arbeiten am selben Code. Unsere Art, wie wir im .css die die einzelnen Elemente angsprochen haben, unterschied sich etwas. Was dazu führte, dass wir im Verlauf eine neue Lösung suchen mussten, wie wir den main und body unterschiedlich ansprechen könn. Dies lösten wir, indem wir den betroffenen .html dem body und dem main eine class zugewiesen haben.
 
+Eine der grössten Herausforderungen war es, den Überblick über alle Dateien und Codeabschnitte zu behalten – besonders, weil wir zu zweit gearbeitet haben. Wenn zwei Personen gleichzeitig am CSS arbeiten, entstehen schnell Konflikte oder unerwartete Überschreibungen, was zeitweise verwirrend war und Absprachen erforderte.
 
+Code aufräumen oder kürzen war riskant, da man nie sicher war, ob man damit etwas der anderen Person kaputt macht. Ineffizienter Code blieb deshalb oft stehen.
+Bei Lottiefiles stiessen wir auf zwei Probleme: eine begrenzte Anzahl Animationen sowie die Einbindung als externes Script-Plugin (dotlottie-wc), wodurch unklar war, wie man die Animationen per JavaScript ansprechen kann.
+Generell häufte sich schnell sehr viel Code an, was den Überblick erschwerte und dazu führte, dass Änderungen einer Person manchmal den Code der anderen beeinflussten.
 
+## Learnings
 
-# Tarot
+Zuerst einen Prototypen aufbauen, bevor man ins Detail geht
 
-Project_IM2
+Hilfreich war auch, die Arbeit in kleine Teilziele aufzuteilen, damit der Fortschritt sichtbar bleibt.
+
+Da wir noch wenig Erfahrung mit HTML, CSS und JavaScript hatten, haben wir vieles mit dem Motto «das schaffen wir schon irgendwie» angegangen, ohne genau zu wissen wie. Beim nächsten Projekt kann man schon beim Figma realistischer planen und technische Lösungen früher mitdenken.
+
+Bei JavaScript haben wir gelernt, wie wichtig saubere if-Bedingungen sind: Fehlt eine oder ist sie falsch gesetzt, kann die gesamte Logik aufhören zu funktionieren.
+
+Beim gemeinsamen Arbeiten ist eine klare Absprache über Codestil und Konventionen von Anfang an entscheidend.
+
+# Wichtige Links
+
+## Tarot
 
 Link Webseite https://fortunate-finalists.cixenabi.myhostpoint.ch/
-
-## Subtitle
-
-Paragrapg
-
-[Link] (https://de.wikipedia.org/wiki/Tarot)
 
 Tarot cards:
 https://onyourjourney.co.uk/wp-content/uploads/2023/07/Free-Printable-Tarot-Deck-Onyourjourney.pdf
 
 Datensatz: https://tarotapi.dev/api/v1/cards
 
-Ablauf Game
+## LOTTIEFILES-BUTTONS
 
-Ranking Karten
-
-1. Major
-   ar01
-   ar02
-   ar03
-   ar04
-   ar05
-   ar06
-   ar07
-   ar08
-   ar09
-   ar10
-   ar11
-   ar12
-   ar13
-   ar14
-   ar15
-   ar16
-   ar20
-   ar21
-   ar00
-
-2. Cups (1,14-2)
-3. Wands (1,14-2)
-4. Pentacles (1,14-2)
-5. Swords(1,14-2)
-
-const cardValues = {
-// Major Arcana (22)
-'ar21': 78,
-'ar20': 77,
-'ar19': 76,
-'ar18': 75,
-'ar17': 74,
-'ar16': 73,
-'ar15': 72,
-'ar14': 71,
-'ar13': 70,
-'ar12': 69,
-'ar11': 68,
-'ar10': 67,
-'ar09': 66,
-'ar08': 65,
-'ar07': 64,
-'ar06': 63,
-'ar05': 62,
-'ar04': 61,
-'ar03': 60,
-'ar02': 59,
-'ar01': 58,
-'ar00': 57,
-
-    // Cups (14)
-    'cuac': 56,
-    'cuki': 55,
-    'cuqu': 54,
-    'cukn': 53,
-    'cupa': 52,
-    'cu10': 51,
-    'cu09': 50,
-    'cu08': 49,
-    'cu07': 48,
-    'cu06': 47,
-    'cu05': 46,
-    'cu04': 45,
-    'cu03': 44,
-    'cu02': 43,
-
-    // Wands (14)
-    'waac': 42,
-    'waki': 41,
-    'waqu': 40,
-    'wakn': 39,
-    'wapa': 38,
-    'wa10': 37,
-    'wa09': 36,
-    'wa08': 35,
-    'wa07': 34,
-    'wa06': 33,
-    'wa05': 32,
-    'wa04': 31,
-    'wa03': 30,
-    'wa02': 29,
-
-    // Pentacles (14)
-    'peac': 28,
-    'peki': 27,
-    'pequ': 26,
-    'pekn': 25,
-    'pepa': 24,
-    'pe10': 23,
-    'pe09': 22,
-    'pe08': 21,
-    'pe07': 20,
-    'pe06': 19,
-    'pe05': 18,
-    'pe04': 17,
-    'pe03': 16,
-    'pe02': 15,
-
-    // Swords (14)
-    'swac': 14,
-    'swki': 13,
-    'swqu': 12,
-    'swkn': 11,
-    'swpa': 10,
-    'sw10': 9,
-    'sw09': 8,
-    'sw08': 7,
-    'sw07': 6,
-    'sw06': 5,
-    'sw05': 4,
-    'sw04': 3,
-    'sw03': 2,
-    'sw02': 1
-
-};
-
-BUTTONS
 Play
 
 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
@@ -165,4 +62,4 @@ play again
 
 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.14/dist/dotlottie-wc.js" type="module"></script>
 
-<dotlottie-wc src="https://lottie.host/0fa82189-e251-43cc-a548-f673326b9ba8/2JFAejJfmb.lottie" stateMachineId="play_again!" style="width: 300px;height: 300px"></dotlottie-wc>
+<dotlottie-wc src="https://lottie.host/de5b6fb9-e8c3-4141-ba0a-7e81717113dd/Br3fdm0EPR.lottie" stateMachineId="play_again!"></dotlottie-wc>

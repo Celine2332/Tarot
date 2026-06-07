@@ -904,7 +904,6 @@ body.game-body {
     #startButton {
         transform: translateY(5rem);
     }
-
     nav.menu {
         scale: 0.8;
         right: var(--ga-small);
@@ -925,15 +924,18 @@ body.game-body {
         width: 400px;
     }
 
-        .winner-card{
+    .winner-card{
         top: 420px;
         width: 170px;
     }
 
 
-#nextButton {
-    scale: 0.8;
-}
+    #nextButton {
+        scale: 0.8;
+    }
+    #finalButton {
+        scale: 0.8;
+    }
 }
 
 @media screen and (max-width: 500px) {
@@ -947,7 +949,7 @@ body.game-body {
 
     #shuffleAnimation {
         scale: 0.8;
-        transform: translateY(30rem);
+        transform: translateY(25rem);
     }
     .karten {
         width: 140px;
